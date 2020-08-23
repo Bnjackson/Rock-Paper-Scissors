@@ -23,7 +23,7 @@ function computerChoice() {
     }
 }
 
-//Compares user and computer result, returns number 1 for win, 0 for loss, 2 for draw and 3 for 
+//Compares user and computer result, returns number 1 for win, 0 for loss, 2 for draw and 3 for an error. Also prints result.
 function playRound(playerSelection, computerSelection) {
     let playerUpper = playerSelection.toUpperCase();
     if (playerUpper == 'ROCK' && computerSelection === 'SCISSORS') {
@@ -60,6 +60,7 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
+//Loop for 5 rounds, calculate score and determine winner.
 game();
 function game() {
     let playerScore = 0;
