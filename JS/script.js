@@ -6,7 +6,12 @@ Loop for 5 rounds 1 point for 1 win.
 Compare point totals declare winner.
 */
 
-//Random computer choice
+//Prompt asking for user choice
+function playerChoice() {
+    return prompt('Rock, Paper, Scissors. Pick one.');
+}
+
+//Random computer choice - Number generated 0 - 2 then comparision to generate the result. 
 function computerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     if(randomNumber === 0) {
@@ -17,10 +22,8 @@ function computerChoice() {
         return 'SCISSORS';
     }
 }
-function playerChoice() {
-    return prompt('Rock, Paper, Scissors. Pick one.');
-}
 
+//Compares user and computer result, returns number 1 for win, 0 for loss, 2 for draw and 3 for 
 function playRound(playerSelection, computerSelection) {
     let playerUpper = playerSelection.toUpperCase();
     if (playerUpper == 'ROCK' && computerSelection === 'SCISSORS') {
@@ -36,18 +39,23 @@ function playRound(playerSelection, computerSelection) {
         return 1;
     }
     else if (playerUpper === 'SCISSORS' && computerSelection === 'ROCK') {
+        console.log("Scissors beats Paper, you loose!");
         return 0;
     }
     else if (playerUpper === 'ROCK' && computerSelection === 'PAPER') {
+        console.log("Paper beats Rock, you loose!");
         return 0;
     }
     else if (playerUpper === 'PAPER' && computerSelection === 'SCISSORS') {
+        console.log("Scissors beats Paper, you win!");
         return 0;
     }
-    else if (playerUpper == computerSelection) {
+    else if (playerUpper === computerSelection) {
+        console.log('Its a tie!');
         return 2;
     }
     else {
+        console.log('ERROR: Check spelling, only Rock, Paper, Scissors');
         return 3;
     } 
 }
@@ -71,7 +79,7 @@ function game() {
             computerScore++;
         }
         else if (result === 3) {
-            console.log('error');
+            i--;
         }
     }
     determineWinner();
@@ -89,5 +97,3 @@ function game() {
 }
 
 
-
-//Player Choice
